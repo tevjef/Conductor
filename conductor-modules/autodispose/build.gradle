@@ -21,10 +21,11 @@ android {
 }
 
 dependencies {
-    compile rootProject.ext.rxJava2
-    compile rootProject.ext.autodispose
+    api rootProject.ext.rxJava2
+    api rootProject.ext.autodispose
+    api rootProject.ext.supportAnnotations
 
-    compile project(':conductor')
+    api project(':conductor')
 }
 
 ext.artifactId = 'conductor-autodispose'
