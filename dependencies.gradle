@@ -13,10 +13,14 @@ ext {
     rxLifecycleVersion = '0.8.0'
     rxLifecycle2Version = '2.0'
     autodisposeVersion = '0.2.0'
-    archComponentsVersion = '1.0.0-alpha3'
+    archComponentsVersion = '1.1.1'
     junitVersion = '4.11'
     roboelectricVersion = '3.0'
     lintVersion = '25.2.0'
+
+    archComopnentsViewModel = "android.arch.lifecycle:extensions:1.1.1"
+    archComopnentsNavigationFragments = "android.arch.navigation:navigation-fragment:1.0.0-alpha01" // use -ktx for Kotlin
+    archComopnentsNavigationUi = "android.arch.navigation:navigation-ui:1.0.0-alpha01" // use -ktx for Kotlin
 
     supportV4 = "com.android.support:support-v4:$supportVersion"
     supportDesign = "com.android.support:design:$supportVersion"

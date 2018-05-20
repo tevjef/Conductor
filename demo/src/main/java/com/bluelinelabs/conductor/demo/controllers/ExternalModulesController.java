@@ -29,7 +29,8 @@ public class ExternalModulesController extends BaseController {
         RX_LIFECYCLE("Rx Lifecycle", R.color.red_300),
         RX_LIFECYCLE_2("Rx Lifecycle 2", R.color.blue_grey_300),
         AUTODISPOSE("Autodispose", R.color.purple_300),
-        ARCH_LIFECYCLE("Arch Components Lifecycle", R.color.orange_300);
+        ARCH_LIFECYCLE("Arch Components Lifecycle", R.color.orange_300),
+        ARCH_NAVIGATION("Arch Components Navigation", R.color.orange_300);
 
         String title;
         @ColorRes int color;
@@ -90,6 +91,11 @@ public class ExternalModulesController extends BaseController {
                 getRouter().pushController(RouterTransaction.with(new ArchLifecycleController())
                         .pushChangeHandler(new FadeChangeHandler())
                         .popChangeHandler(new FadeChangeHandler()));
+                break;
+            case ARCH_NAVIGATION:
+                getRouter().pushController(RouterTransaction.with(new ArchNavigationDemoController(0, ArchNavigationDemoController.DisplayUpMode.SHOW_FOR_CHILDREN_ONLY))
+                    .pushChangeHandler(new FadeChangeHandler())
+                    .popChangeHandler(new FadeChangeHandler()));
                 break;
         }
     }

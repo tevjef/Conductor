@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@+id/firstController">
+    <controller
+        android:id="@+id/firstController"
+        android:name="com.bluelinelabs.conductor.demo.controllers.ArchNavigationDemoController"
+        android:label="ArchNavigationDemoController1">
+        <argument android:name="index" android:defaultValue="0" app:type="integer"/>
+        <action
+            android:id="@+id/action_controller_to_activity"
+            app:destination="@+id/activity" />
+    </controller>
+
+    <controller
+        android:id="@+id/secondController"
+        android:name="com.bluelinelabs.conductor.demo.controllers.ArchNavigationDemoController"
+        android:label="ArchNavigationDemoController2">
+        <action
+            android:id="@+id/action_controller_to_activity"
+            app:destination="@+id/activity" />
+    </controller>
+
+    <activity
+        android:id="@+id/activity"
+        android:name="com.bluelinelabs.conductor.demo.MainActivity"
+        android:label="MainActivity">
+    </activity>
+</navigation>

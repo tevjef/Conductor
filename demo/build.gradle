@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -43,6 +44,7 @@ dependencies {
     implementation project(':conductor-modules:rxlifecycle2')
     implementation project(':conductor-modules:autodispose')
     implementation project(':conductor-modules:arch-components-lifecycle')
+    implementation project(':conductor-modules:arch-components-navigation')
 
     debugImplementation rootProject.ext.leakCanary
     debugImplementation rootProject.ext.leakCanary
