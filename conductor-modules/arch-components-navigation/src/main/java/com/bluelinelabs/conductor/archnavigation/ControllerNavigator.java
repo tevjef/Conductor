@@ -69,7 +69,7 @@ public class ControllerNavigator extends Navigator<ControllerNavigator.Destinati
         }
 
         if (from != null && to != null) {
-          dispatchOnNavigatorNavigated(Integer.valueOf(getLastTag()), backStackEffect);
+         // dispatchOnNavigatorNavigated(Integer.valueOf(getLastTag()), backStackEffect);
         }
       }
     });
@@ -105,27 +105,12 @@ public class ControllerNavigator extends Navigator<ControllerNavigator.Destinati
   }
 
   @Override
-  public void navigate(@NonNull final Destination destination, @Nullable Bundle args,
+  public void navigate(@NonNull final ControllerNavigator.Destination destination, @Nullable Bundle args,
                        @Nullable NavOptions navOptions) {
 
-    final Controller cont = destination.createController(args);
+    final Controller controller = destination.createController(args);
 
-    RouterTransaction transaction = RouterTransaction
-        .with(cont)
-        .tag(String.valueOf(destination.getId()));
-
-    RouterTransaction lastTransaction = getLastTransaction();
-
-    boolean initialNavigation = false;
-    if (lastTransaction != null) {
-      initialNavigation = lastTransaction.controller() instanceof NavHostLayout.DefaultController;
-    }
-
-    if (initialNavigation) {
-      router.setRoot(transaction);
-    } else {
-      router.pushController(transaction);
-    }
+    router.pushController(RouterTransaction.with(controller));
   }
 
   /**

@@ -115,10 +115,6 @@ public class NavHostLayout extends FrameLayout implements NavHost, LifecycleObse
     Navigation.setViewNavController(this, navController);
     navController.getNavigatorProvider().addNavigator(createControllerNavigator());
 
-    if (!router.hasRootController()) {
-      router.setRoot(RouterTransaction.with(new DefaultController(Bundle.EMPTY)));
-    }
-
     Bundle navState = null;
     if (savedInstanceState != null) {
       navState = savedInstanceState.getBundle(KEY_NAV_CONTROLLER_STATE);
@@ -172,20 +168,7 @@ public class NavHostLayout extends FrameLayout implements NavHost, LifecycleObse
     return router.handleBack();
   }
 
-  static class DefaultController extends Controller {
-
-    DefaultController(@Nullable Bundle args) {
-      super(args);
-    }
-
-    @NonNull
-    @Override
-    protected View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container) {
-      return new FrameLayout(container.getContext());
-    }
-  }
-
-  static class StateViewModel extends ViewModel {
+  public static class StateViewModel extends ViewModel {
     private final Bundle state;
 
     public StateViewModel() {
